@@ -1,0 +1,42 @@
+<h4 mat-dialog-title>Add New User</h4>
+<form [formGroup]="userFormGroup" (ngSubmit)="saveUserInDb(userFormGroup)">
+    <mat-dialog-content>
+        <div class="row m-0 p-0">
+            <mat-form-field class="col">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field class="col">
+                <mat-label>Email</mat-label>
+                <input type="text" matInput formControlName="email">
+            </mat-form-field>
+        </div>
+        <div class="row m-0 p-0">
+            <mat-form-field class="col">
+                <mat-label>Phone</mat-label>
+                <input type="text" matInput formControlName="phone">
+            </mat-form-field>
+            <mat-form-field class="col">
+                <mat-label>Comment</mat-label>
+                <input type="text" matInput formControlName="comments">
+            </mat-form-field>
+        </div>
+        <div class="row m-0 p-0">
+            <mat-form-field class="col">
+                <mat-label>Frequency</mat-label>
+                <input type="text" matInput formControlName="frequency">
+            </mat-form-field>
+        </div>
+        <div class="row m-0 p-0">
+            <mat-form-field class="col">
+                <mat-label>Address</mat-label>
+                <textarea matInput rows="5" formControlName="address"></textarea>
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button type="reset" mat-raised-button mat-dialog-close color="warn">Cancel</button>
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+    </mat-dialog-actions>
+</form>

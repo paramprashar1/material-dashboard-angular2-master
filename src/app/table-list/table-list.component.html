@@ -1,0 +1,56 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row m-0 p-0">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h4 class="m-0 pull-left">Users</h4>
+                    <button mat-raised-button type="button" color="primary" class="pull-right"
+                        (click)="openUserModal()">
+                        <mat-icon>add</mat-icon>
+                        Add User
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Sr. No</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Creation Date</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="usersList.length == 0">
+                            <tr>
+                                <td colspan="6" class="text-center">No Users</td>
+                            </tr>
+                        </tbody>
+                        <tbody *ngIf="usersList.length > 0">
+                            <tr *ngFor="let user of usersList; index as idx">
+                                <td>{{ idx + 1 }}</td>
+                                <td>{{ user.name }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.phone }}</td>
+                                <td>{{ user.address }}</td>
+                                <td>{{ user.creationDate.toDate() | date: 'dd-MM-yyyy hh:MM:ss aa' }}</td>
+                                <td>
+                                    <button type="button" mat-icon-button (click)="updateUser(user)"
+                                        matTooltip="Update User Details">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                    <button type="button" mat-icon-button (click)="deleteUser(user.userId)"
+                                        matTooltip="Delete Existing user">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
